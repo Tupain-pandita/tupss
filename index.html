@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tupain Mart - eCommerce</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #232f3e;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        header .search-bar {
+            width: 60%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        header .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+
+        header .nav-links a:hover {
+            color: #ff9900;
+        }
+
+        header .cart {
+            background-color: #ff9900;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .main-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .product {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 300px;
+            margin: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product h3 {
+            font-size: 22px;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .product .price {
+            font-size: 20px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .product button {
+            background-color: #ff9900;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .product button:hover {
+            background-color: #e68900;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #232f3e;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile Responsiveness */
+        @media screen and (max-width: 768px) {
+            .product {
+                width: 45%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .product {
+                width: 100%;
+            }
+
+            header .search-bar {
+                width: 70%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">Tupain Mart</div>
+        <input type="text" class="search-bar" placeholder="Search for products...">
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#about">About Us</a>
+            <a href="#faqs">FAQs</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+        <div class="cart" onclick="viewCart()">Cart (0)</div>
+    </header>
+
+    <!-- Home Page -->
+    <div id="home" class="main-container">
+        <h2>Featured Products</h2>
+        <div class="product">
+            <img src="https://via.placeholder.com/300x200" alt="Product 1">
+            <div class="product-info">
+                <h3>Product 1</h3>
+                <p class="price">$20.00</p>
+                <button onclick="addToCart('Product 1', 20)">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://via.placeholder.com/300x200" alt="Product 2">
+            <div class="product-info">
+                <h3>Product 2</h3>
+                <p class="price">$35.00</p>
+                <button onclick="addToCart('Product 2', 35)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shop Page -->
+    <div id="shop" class="main-container">
+        <h2>All Products</h2>
+        <div class="product">
+            <img src="https://via.placeholder.com/300x200" alt="Product 3">
+            <div class="product-info">
+                <h3>Product 3</h3>
+                <p class="price">$50.00</p>
+                <button onclick="addToCart('Product 3', 50)">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://via.placeholder.com/300x200" alt="Product 4">
+            <div class="product-info">
+                <h3>Product 4</h3>
+                <p class="price">$40.00</p>
+                <button onclick="addToCart('Product 4', 40)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- More Products -->
+    </div>
+
+    <!-- About Us Page -->
+    <div id="about" class="main-container">
+        <h2>About Tupain Mart</h2>
+        <p>At Tupain Mart, we provide the best quality products for your daily needs. We strive to offer competitive prices, fast shipping, and excellent customer service.</p>
+
+        <h3>Company Perks</h3>
+        <ul>
+            <li>Free shipping on orders over $50</li>
+            <li>24/7 Customer Support</li>
+            <li>Easy Returns</li>
+        </ul>
+
+        <h3>Our Services</h3>
+        <ul>
+            <li>Fast Delivery</li>
+            <li>Secure Payments</li>
+            <li>Gift Cards</li>
+        </ul>
+    </div>
+
+    <!-- FAQs Page -->
+    <div id="faqs" class="main-container">
+        <h2>Frequently Asked Questions</h2>
+        <h3>What is the return policy?</h3>
+        <p>You can return products within 30 days for a full refund if they are unused and in the original packaging.</p>
+
+        <h3>Do you offer free shipping?</h3>
+        <p>Yes! We offer free shipping on orders over $50.</p>
+
+        <h3>How can I contact customer support?</h3>
+        <p>You can reach our customer support by emailing support@tupainmart.com or calling 123-456-7890.</p>
+    </div>
+
+    <!-- Contact Us Page -->
+    <div id="contact" class="main-container">
+        <h2>Contact Us</h2>
+        <p>We'd love to hear from you! Reach out to us through the following methods:</p>
+        <ul>
+            <li>Email: support@tupainmart.com</li>
+            <li>Phone: 123-456-7890</li>
+            <li>Address: 123 Tupain Mart St., Cityville, CA 12345</li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Tupain Mart</p>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        let cart = [];
+
+        function addToCart(product, price) {
+            cart.push({ product, price });
+            alert(`${product} has been added to your cart!`);
+            document.querySelector('.cart').textContent = `Cart (${cart.length})`;
+        }
+
+        function viewCart() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+            } else {
+                let cartDetails = cart.map(item => `${item.product} - $${item.price}`).join('\n');
+                alert('Your Cart:\n' + cartDetails);
+            }
+        }
+    </script>
+</body>
+</html>
